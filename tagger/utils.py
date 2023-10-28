@@ -62,6 +62,10 @@ def refresh_interrogators() -> List[str]:
     }
 
     # load deepdanbooru project
+
+    deepdanbooru_projects_path = "models/torch_deepdanbooru"
+    shared.cmd_opts.deepdanbooru_projects_path = deepdanbooru_projects_path
+    
     os.makedirs(
         getattr(shared.cmd_opts, 'deepdanbooru_projects_path', default_ddp_path),
         exist_ok=True
