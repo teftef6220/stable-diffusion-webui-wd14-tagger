@@ -4,6 +4,29 @@ https://github.com/toriato/stable-diffusion-webui-wd14-tagger/issues/108
 https://github.com/picobyte/stable-diffusion-webui-wd14-tagger
 
 
+
+# Fixed Error on 2023/10/28
+I fix all 3 errors on import modules errors.
+
+```
+File "E:\stable-diffusion-webui\extensions\stable-diffusion-webui-wd14-tagger\scripts\tagger.py", line 18, in <module>
+        from modules.shared import models_path
+    ImportError: cannot import name 'models_path' from partially initialized module 'modules.shared' (most likely due to a circular import)
+```
+```
+File "E:\stable-diffusion-webui\extensions\stable-diffusion-webui-wd14-tagger\scripts\tagger.py", line 10, in <module>
+        from webui import wrap_gradio_gpu_call
+    ImportError: cannot import name 'wrap_gradio_gpu_call' from 'webui'
+```
+```
+File "E:\stable-diffusion-webui\extensions\stable-diffusion-webui-wd14-tagger\scripts\tagger.py", line 45, in refresh_interrogators
+shared.cmd_opts.deepdanbooru_projects_path,
+AttributeError: 'Namespace' object has no attribute 'deepdanbooru_projects_path'
+```
+
+It works on my webui v1.6.0 env
+
+
 # Tagger for [Automatic1111's WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
 Interrogate booru style tags for single or multiple image files using various models, such as DeepDanbooru.
 
